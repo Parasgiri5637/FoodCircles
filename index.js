@@ -2,6 +2,16 @@
 
 const menuBar = document.querySelector("#menu-bar");
 const navbar = document.querySelector(".navbar");
+const headingEl = document.querySelector(".heading");
+const homeEl = document.querySelector(".home");
+
+menuBar.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
+
+window.addEventListener("scroll", () => {
+  navbar.classList.remove("active");
+});
 
 //* animation load when page load
 window.addEventListener("DOMContentLoaded", () => {
@@ -45,12 +55,26 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-menuBar.addEventListener("click", () => {
-  navbar.classList.toggle("active");
-});
-
-window.addEventListener("scroll", () => {
-  navbar.classList.remove("active");
-});
-
 //* smoth scrolling
+document.querySelector(".heading").addEventListener("click", (e) => {
+  e.preventDefault();
+  const id = e.target.getAttribute("href");
+  document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+});
+
+//*nav-sticky
+const callBack = (entries) => {
+  const [entry] = entries;
+  !entry.isIntersecting
+    ? headingEl.classList.add("sticky")
+    : headingEl.classList.remove("sticky");
+};
+
+const option = {
+  root: null,
+  threshold: 0,
+  rootMargin: "-120px",
+};
+const observer = new IntersectionObserver(callBack, option);
+
+observer.observe(homeEl);
