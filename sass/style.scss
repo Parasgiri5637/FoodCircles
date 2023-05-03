@@ -38,7 +38,8 @@ body {
   justify-content: space-between;
   padding: 1.5em 5em;
   background-color: var(--bg-color);
-
+  width: 100%;
+  z-index: 100;
   .logo {
     color: var(--main-color);
     font-weight: 500;
@@ -74,7 +75,11 @@ body {
     z-index: 10;
   }
 }
-
+.heading.sticky {
+  position: fixed;
+  background-color: #2c2a38;
+  transition: all 02s ease;
+}
 // ============================================ Home Section
 .add-padding {
   padding: 3em 15%;
