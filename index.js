@@ -14,6 +14,7 @@ window.addEventListener("scroll", () => {
 });
 
 //* this is animation library called anime
+//* //* animation with best property 
 //* animation load when page load
 window.addEventListener("DOMContentLoaded", () => {
   anime({
