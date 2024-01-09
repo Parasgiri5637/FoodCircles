@@ -13,6 +13,7 @@ window.addEventListener("scroll", () => {
   navbar.classList.remove("active");
 });
 
+//* this is animation library called anime
 //* animation load when page load
 window.addEventListener("DOMContentLoaded", () => {
   anime({
